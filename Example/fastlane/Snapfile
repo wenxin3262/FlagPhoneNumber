@@ -1,4 +1,5 @@
 # Uncomment the lines below you want to change by removing the # in the beginning
+ios_version "11.2"
 
 # A list of devices you want to take the screenshots from
 devices([
@@ -18,13 +19,15 @@ devices([
 # ])
 
 # The name of the scheme which contains the UI Tests
-scheme "CTKFlagPhoneNumber-Example"
+scheme "CTKFlagPhoneNumber_ExampleUITests"
 
 # Where should the resulting screenshots be stored?
 # output_directory "./screenshots"
 
 # remove the '#' to clear all previously generated screenshots before creating new ones
 clear_previous_screenshots true
+stop_after_first_error true
+number_of_retries 0
 
 # Arguments to pass to the app on launch. See https://docs.fastlane.tools/actions/snapshot/#launch-arguments
 # launch_arguments(["-favColor red"])
