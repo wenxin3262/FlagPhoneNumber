@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build-and-test:
+  build:
 
     # Specify the Xcode version to use
     macos:
