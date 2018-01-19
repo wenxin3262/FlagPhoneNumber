@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17A67C4B2012215B00BD1C1B /* CTKFlagPhoneNumberUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A67C4A2012215B00BD1C1B /* CTKFlagPhoneNumberUITests.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -15,8 +16,21 @@
 		F65337E684B3478B8B6D18E1 /* Pods_CTKFlagPhoneNumber_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 767C53D5F6A9D14B9CBB846B /* Pods_CTKFlagPhoneNumber_Example.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		17A67C4D2012215B00BD1C1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
+			remoteInfo = CTKFlagPhoneNumber_Example;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		2F76FC9BAF95B1BC0B71FFA0 /* Pods-CTKFlagPhoneNumber_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CTKFlagPhoneNumber_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-CTKFlagPhoneNumber_Example/Pods-CTKFlagPhoneNumber_Example.release.xcconfig"; sourceTree = "<group>"; };
+		0AF6D23BCE7990AA62688447 /* Pods-CTKFlagPhoneNumber_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CTKFlagPhoneNumber_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CTKFlagPhoneNumber_Example/Pods-CTKFlagPhoneNumber_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		17A67C482012215B00BD1C1B /* CTKFlagPhoneNumberUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CTKFlagPhoneNumberUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		17A67C4A2012215B00BD1C1B /* CTKFlagPhoneNumberUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTKFlagPhoneNumberUITests.swift; sourceTree = "<group>"; };
+		17A67C4C2012215B00BD1C1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* CTKFlagPhoneNumber_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CTKFlagPhoneNumber_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +46,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		17A67C452012215B00BD1C1B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCD1AFB9204008FA782 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -43,11 +64,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17A67C492012215B00BD1C1B /* CTKFlagPhoneNumberUITests */ = {
+			isa = PBXGroup;
+			children = (
+				17A67C4A2012215B00BD1C1B /* CTKFlagPhoneNumberUITests.swift */,
+				17A67C4C2012215B00BD1C1B /* Info.plist */,
+			);
+			path = CTKFlagPhoneNumberUITests;
+			sourceTree = "<group>";
+		};
+		1B257CE480AA32E296507C48 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0AF6D23BCE7990AA62688447 /* Pods-CTKFlagPhoneNumber_Example.debug.xcconfig */,
+				E19DB3BCD454CAAFFFDFF7EC /* Pods-CTKFlagPhoneNumber_Example.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		22AA1340BC3602330BACFC53 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A6B0F982F100B078C3B2F686 /* Pods_CTKFlagPhoneNumber_Example.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for CTKFlagPhoneNumber */,
+				17A67C492012215B00BD1C1B /* CTKFlagPhoneNumberUITests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				DCA2FC0F889A07C6D9D70A6D /* Pods */,
 				B9D967BA25838D0D1888147C /* Frameworks */,
@@ -58,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD01AFB9204008FA782 /* CTKFlagPhoneNumber_Example.app */,
+				17A67C482012215B00BD1C1B /* CTKFlagPhoneNumberUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,6 +163,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		17A67C472012215B00BD1C1B /* CTKFlagPhoneNumberUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17A67C512012215B00BD1C1B /* Build configuration list for PBXNativeTarget "CTKFlagPhoneNumberUITests" */;
+			buildPhases = (
+				17A67C442012215B00BD1C1B /* Sources */,
+				17A67C452012215B00BD1C1B /* Frameworks */,
+				17A67C462012215B00BD1C1B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				17A67C4E2012215B00BD1C1B /* PBXTargetDependency */,
+			);
+			name = CTKFlagPhoneNumberUITests;
+			productName = CTKFlagPhoneNumberUITests;
+			productReference = 17A67C482012215B00BD1C1B /* CTKFlagPhoneNumberUITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		607FACCF1AFB9204008FA782 /* CTKFlagPhoneNumber_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "CTKFlagPhoneNumber_Example" */;
@@ -140,10 +207,16 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0930;
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
+					17A67C472012215B00BD1C1B = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 38CD3GCJU3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 607FACCF1AFB9204008FA782;
+					};
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 38CD3GCJU3;
@@ -165,11 +238,19 @@
 			projectRoot = "";
 			targets = (
 				607FACCF1AFB9204008FA782 /* CTKFlagPhoneNumber_Example */,
+				17A67C472012215B00BD1C1B /* CTKFlagPhoneNumberUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		17A67C462012215B00BD1C1B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCE1AFB9204008FA782 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -239,6 +320,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		17A67C442012215B00BD1C1B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17A67C4B2012215B00BD1C1B /* CTKFlagPhoneNumberUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCC1AFB9204008FA782 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -249,6 +338,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		17A67C4E2012215B00BD1C1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 607FACCF1AFB9204008FA782 /* CTKFlagPhoneNumber_Example */;
+			targetProxy = 17A67C4D2012215B00BD1C1B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
@@ -270,6 +367,56 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		17A67C4F2012215B00BD1C1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 38CD3GCJU3;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = CTKFlagPhoneNumberUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chronotruck.ios.drivers.CTKFlagPhoneNumberUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CTKFlagPhoneNumber_Example.app/CTKFlagPhoneNumber_Example";
+			};
+			name = Debug;
+		};
+		17A67C502012215B00BD1C1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 38CD3GCJU3;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = CTKFlagPhoneNumberUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chronotruck.ios.drivers.CTKFlagPhoneNumberUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CTKFlagPhoneNumber_Example.app/CTKFlagPhoneNumber_Example";
+			};
+			name = Release;
+		};
 		607FACED1AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -414,6 +561,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		17A67C512012215B00BD1C1B /* Build configuration list for PBXNativeTarget "CTKFlagPhoneNumberUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17A67C4F2012215B00BD1C1B /* Debug */,
+				17A67C502012215B00BD1C1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "CTKFlagPhoneNumber" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
