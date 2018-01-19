@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		17A67C5D2012318200BD1C1B /* CTKFlagPhoneNumber_ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A67C5C2012318200BD1C1B /* CTKFlagPhoneNumber_ExampleUITests.swift */; };
-		17A67C65201231B500BD1C1B /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A67C64201231B500BD1C1B /* SnapshotHelper.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -328,7 +327,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				17A67C5D2012318200BD1C1B /* CTKFlagPhoneNumber_ExampleUITests.swift in Sources */,
-				17A67C65201231B500BD1C1B /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
