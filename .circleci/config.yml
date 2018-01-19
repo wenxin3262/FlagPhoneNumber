@@ -22,7 +22,7 @@ jobs:
         environment:
           SCAN_WORKSPACE: CTKFlagPhoneNumber.xcworkspace
           # SCAN_DEVICE: iPhone 6s
-          SCAN_SCHEME: CTKFlagPhoneNumber_ExampleUITests
+          SCAN_SCHEME: CTKFlagPhoneNumber-Example
           # SCAN_CLEAN:  true
           # SCAN_CONFIGURATION: DEBUG
           # SCAN_XCARGS:
