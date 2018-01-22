@@ -4,11 +4,11 @@ jobs:
 
     # Specify the Xcode version to use
     macos:
-      xcode: "9.0"
+      xcode: "8.2"
 
     dependencies:
       pre:
-        - SNAPSHOT_FORCE_DELETE=1 snapshot reset_simulators
+        - xcrun instruments -w "iPhone 6 (11.2)" || true
 
     steps:
     - checkout
