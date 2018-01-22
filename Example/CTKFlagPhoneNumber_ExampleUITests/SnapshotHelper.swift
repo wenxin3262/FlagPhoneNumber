@@ -223,6 +223,10 @@ private extension XCUIElementQuery {
     }
 
     var deviceStatusBars: XCUIElementQuery {
+			print("hello")
+			print(XCUIApplication())
+			print(XCUIApplication().frame)
+			print(XCUIApplication().frame.width)
         let deviceWidth = XCUIApplication().frame.width
 
         let isStatusBar = NSPredicate { (evaluatedObject, _) in
