@@ -25,7 +25,7 @@ jobs:
             CODE_SIGNING_REQUIRED=NO
             CODE_SIGN_IDENTITY=
             PROVISIONING_PROFILE=
-            -configuration 'DEBUG'
+            -configuration "DEBUG"
             -sdk iphonesimulator
             -destination 'platform=iOS Simulator,OS=11.0,name=iPhone 6s'
             -workspace CTKFlagPhoneNumber.xcworkspace
