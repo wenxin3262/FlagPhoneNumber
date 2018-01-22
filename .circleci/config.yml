@@ -25,7 +25,7 @@ jobs:
           SCAN_WORKSPACE: CTKFlagPhoneNumber.xcworkspace
           SCAN_DEVICE: iPhone 6s
           SCAN_SCHEME: CTKFlagPhoneNumber_ExampleUITests
-          SCAN_SCAN_TEST_WITHOUT_BUILDING: true
+          SCAN_TEST_WITHOUT_BUILDING: true
           SCAN_BUILD_FOR_TESTING: true
           # SCAN_CLEAN:  true
           # SCAN_CONFIGURATION: DEBUG
