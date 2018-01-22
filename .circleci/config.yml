@@ -1,13 +1,12 @@
 version: 2
 
-
+machine:
+  xcode:
+    version: 8.2
 
 jobs:
   build:
 
-    machine:
-      xcode:
-        version: 8.2
     # Specify the Xcode version to use
     # macos:
     #   xcode: "8.2.1"
