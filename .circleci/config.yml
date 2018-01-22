@@ -4,7 +4,7 @@ jobs:
 
     # Specify the Xcode version to use
     macos:
-      xcode: "8.2"
+      xcode: "8.2.1"
 
     dependencies:
       pre:
