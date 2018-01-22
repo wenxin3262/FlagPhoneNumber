@@ -34,17 +34,24 @@ jobs:
           # SCAN_CONFIGURATION: DEBUG
           # SCAN_XCARGS:
 
-    test:
-      override:
-        - set -o pipefail &&
-          xcodebuild
-            CODE_SIGNING_REQUIRED=NO
-            CODE_SIGN_IDENTITY=
-            PROVISIONING_PROFILE=
-            -sdk iphonesimulator
-            -destination 'platform=iOS Simulator,OS=10.1,name=iPhone 7'
-            -workspace CTKFlagPhoneNumber.xcworkspace
-            -scheme "CTKFlagPhoneNumber_ExampleUITests"
-            clean build test |
-          tee $CIRCLE_ARTIFACTS/xcode_raw.log |
-          xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/results.xml
+  test:
+    override:
+      - set -o pipefail &&
+        xcodebuild
+          CODE_SIGNING_REQUIRED=NO
+          CODE_SIGN_IDENTITY=
+          PROVISIONING_PROFILE=
+          -sdk iphonesimulator
+          -destination 'platform=iOS Simulator,OS=10.1,name=iPhone 7'
+          -workspace CTKFlagPhoneNumber.xcworkspace
+          -scheme "CTKFlagPhoneNumber_ExampleUITests"
+          clean build test |
+        tee $CIRCLE_ARTIFACTS/xcode_raw.log |
+        xcpretty --color --report junit --output $CIRCLE_TEST_REPORTS/xcode/results.xml
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
