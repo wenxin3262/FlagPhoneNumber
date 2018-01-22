@@ -36,8 +36,9 @@ class CTKFlagPhoneNumber_ExampleUITests: XCTestCase {
 	func testExample() {
 		// Use recording to get started writing UI tests.
 		// Use XCTAssert and related functions to verify your tests produce the correct results.
-		
-		snapshot("01TestExample")
+		let button = XCUIApplication().buttons["Ok"]
+		XCTAssertTrue(!button.exists, "It's good")
+//		snapshot("01TestExample")
 	}
 	
 }
