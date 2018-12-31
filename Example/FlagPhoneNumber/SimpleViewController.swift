@@ -27,7 +27,9 @@ class SimpleViewController: UIViewController {
 
 		// Comment this line to not have access to the country list
 		phoneNumberTextField.parentViewController = self
-		phoneNumberTextField.flagPhoneNumberDelegate = self
+		phoneNumberTextField.delegate = self
+
+		phoneNumberTextField.font = UIFont.systemFont(ofSize: 14)
 
 		// Custom the size/edgeInsets of the flag button
 		phoneNumberTextField.flagSize = CGSize(width: 35, height: 35)
