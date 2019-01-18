@@ -40,7 +40,7 @@ s.resource_bundles = {'FlagPhoneNumber' => ['Sources/Resources/**/*']}
 # s.public_header_files = 'Pod/Classes/**/*.h'
 # s.frameworks = 'UIKit', 'MapKit'
 
-s.dependency 'libPhoneNumberiOS', :git => 'http://github/iziz/libPhoneNumber-iOS.git'
+s.dependency 'libPhoneNumberiOS', :git => 'https://github.com/iziz/libPhoneNumber-iOS.git'
 #s.xcconfig = { 'SWIFT_VERSION' => '4.0' }
 
 end
