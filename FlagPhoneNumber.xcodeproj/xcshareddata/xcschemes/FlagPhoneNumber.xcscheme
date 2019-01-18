@@ -29,6 +29,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "0D9D4B7321E654BE004E7BB9"
+            BuildableName = "FlagPhoneNumber.framework"
+            BlueprintName = "FlagPhoneNumber"
+            ReferencedContainer = "container:FlagPhoneNumber.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

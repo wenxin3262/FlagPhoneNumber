@@ -176,6 +176,7 @@
 		0D9D4B6B21E654BE004E7BB9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = chronotruck;
 				TargetAttributes = {
