@@ -31,7 +31,7 @@ s.source           = { :git => 'https://github.com/chronotruck/FlagPhoneNumber.g
 s.ios.deployment_target = '8.0'
 
 s.source_files = 'Sources/**/*.swift'
-s.resource_bundles = {'FlagPhoneNumber' => ['Sources/Resoureces/**/*']}
+s.resource_bundles = {'FlagPhoneNumber' => ['Sources/Resources/**/*']}
 
 #s.resource_bundles = {
 #'FlagPhoneNumber' => ['FlagPhoneNumber/Assets/*']
