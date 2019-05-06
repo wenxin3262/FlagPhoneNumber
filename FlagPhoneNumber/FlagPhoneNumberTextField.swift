@@ -25,6 +25,8 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 		}
 	}
 
+    public var phoneCodeTextField: UITextField = UITextField()
+
 	/// The size of the leftView
 	private var leftViewSize: CGSize {
 		let width = flagSize.width + flagButtonEdgeInsets.left + flagButtonEdgeInsets.right + phoneCodeTextField.frame.width
@@ -33,7 +35,6 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 		return CGSize(width: width, height: height)
 	}
 
-	private var phoneCodeTextField: UITextField = UITextField()
 	private lazy var countryPicker: FPNCountryPicker = FPNCountryPicker()
 	private lazy var phoneUtil: NBPhoneNumberUtil = NBPhoneNumberUtil()
 	private var nbPhoneNumber: NBPhoneNumber?
@@ -129,7 +130,6 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 		flagButton.contentHorizontalAlignment = .fill
 		flagButton.contentVerticalAlignment = .fill
 		flagButton.imageView?.contentMode = .scaleAspectFit
-		flagButton.accessibilityLabel = "flagButton"
 		flagButton.addTarget(self, action: #selector(displayCountryKeyboard), for: .touchUpInside)
 		flagButton.translatesAutoresizingMaskIntoConstraints = false
 		flagButton.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
