@@ -40,7 +40,7 @@ s.resource_bundles = {'FlagPhoneNumber' => ['FlagPhoneNumber/Resources/**/*']}
 # s.public_header_files = 'Pod/Classes/**/*.h'
 # s.frameworks = 'UIKit', 'MapKit'
 
-s.dependency 'libPhoneNumber-iOS'
+s.dependency 'PhoneNumberKit'
 #s.xcconfig = { 'SWIFT_VERSION' => '4.0' }
 
 end

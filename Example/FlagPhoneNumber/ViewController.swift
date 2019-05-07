@@ -82,11 +82,7 @@ extension ViewController: FPNTextFieldDelegate {
 
 		print(
 			isValid,
-			textField.getFormattedPhoneNumber(format: .E164),
-			textField.getFormattedPhoneNumber(format: .International),
-			textField.getFormattedPhoneNumber(format: .National),
-			textField.getFormattedPhoneNumber(format: .RFC3966),
-			textField.getRawPhoneNumber()
+            textField.getRawPhoneNumber()
 		)
 	}
 

@@ -1,7 +1,12 @@
 PODS:
   - FlagPhoneNumber (0.7.2):
-    - libPhoneNumber-iOS
-  - libPhoneNumber-iOS (0.9.13)
+    - PhoneNumberKit
+  - PhoneNumberKit (2.6.0):
+    - PhoneNumberKit/PhoneNumberKitCore (= 2.6.0)
+    - PhoneNumberKit/UIKit (= 2.6.0)
+  - PhoneNumberKit/PhoneNumberKitCore (2.6.0)
+  - PhoneNumberKit/UIKit (2.6.0):
+    - PhoneNumberKit/PhoneNumberKitCore
   - SwiftLint (0.27.0)
 
 DEPENDENCIES:
@@ -10,7 +15,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - libPhoneNumber-iOS
+    - PhoneNumberKit
     - SwiftLint
 
 EXTERNAL SOURCES:
@@ -18,8 +23,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FlagPhoneNumber: 86194d414c7e3b2f38c16136c4f8a5d34e3ee8b7
-  libPhoneNumber-iOS: e444379ac18bbfbdefad571da735b2cd7e096caa
+  FlagPhoneNumber: d6abf0026a23a6a1796d931145c60cc9445739c3
+  PhoneNumberKit: 167ee1f0bbb6efce7c62559e620eae745595532f
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
 
 PODFILE CHECKSUM: 833345326d22a9441faffa70c41d9c1372dd872c
