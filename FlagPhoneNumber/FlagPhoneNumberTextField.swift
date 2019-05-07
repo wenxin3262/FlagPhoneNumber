@@ -28,11 +28,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
     public var phoneCodeTextField: UITextField = UITextField()
 
     // use picker by default
-    open var useSearchCountry = false {
-        didSet {
-            setupFlagButton()
-        }
-    }
+    open var useSearchCountry = false
 
 	/// The size of the leftView
 	private var leftViewSize: CGSize {
@@ -321,7 +317,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 
 		allowedCharactersSet.insert("+")
 
-		return string.components(separatedBy: allowedCharactersSet.inverted).joined(separator: "")
+        return String(string.unicodeScalars.filter { allowedCharactersSet.contains($0) })
 	}
 
 	private func getValidNumber(phoneNumber: String) -> NBPhoneNumber? {
