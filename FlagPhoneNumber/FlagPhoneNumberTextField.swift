@@ -27,6 +27,13 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 
     public var phoneCodeTextField: UITextField = UITextField()
 
+    // use picker by default
+    open var useSearchCountry = false {
+        didSet {
+            setupFlagButton()
+        }
+    }
+
 	/// The size of the leftView
 	private var leftViewSize: CGSize {
 		let width = flagSize.width + flagButtonEdgeInsets.left + flagButtonEdgeInsets.right + phoneCodeTextField.frame.width
@@ -130,7 +137,15 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 		flagButton.contentHorizontalAlignment = .fill
 		flagButton.contentVerticalAlignment = .fill
 		flagButton.imageView?.contentMode = .scaleAspectFit
-		flagButton.addTarget(self, action: #selector(displayCountryKeyboard), for: .touchUpInside)
+        if useSearchCountry {
+            flagButton.addTarget(self,
+                                 action: #selector(displayAlphabeticKeyBoard),
+                                 for: .touchUpInside)
+        } else {
+            flagButton.addTarget(self,
+                                 action: #selector(displayCountryKeyboard),
+                                 for: .touchUpInside)
+        }
 		flagButton.translatesAutoresizingMaskIntoConstraints = false
 		flagButton.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
 	}
@@ -287,6 +302,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 		}
 
 		flagButton.setImage(selectedCountry?.flag, for: .normal)
+        flagButton.accessibilityValue = selectedCountry?.name
 
 		if let phoneCode = selectedCountry?.phoneCode {
 			phoneCodeTextField.text = phoneCode

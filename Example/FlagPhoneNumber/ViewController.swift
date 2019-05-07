@@ -40,6 +40,8 @@ class ViewController: UIViewController {
 		//		]
 		//		phoneNumberTextField.textFieldInputAccessoryView = getCustomTextFieldInputAccessoryView(with: items)
 
+        // Show search country when click on country code button
+        phoneNumberTextField.useSearchCountry = true
 		// The placeholder is an example phone number of the selected country by default. You can add your own placeholder :
 		phoneNumberTextField.hasPhoneNumberExample = true
 		//		phoneNumberTextField.placeholder = "Phone Number"
