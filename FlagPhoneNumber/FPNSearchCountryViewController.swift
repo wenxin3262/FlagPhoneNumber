@@ -10,15 +10,19 @@ import Foundation
 
 class FPNSearchCountryViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate {
 
-	var searchController: UISearchController?
+    var searchController: UISearchController?
 	var list: [FPNCountry]?
 	var results: [FPNCountry]?
 
 	var delegate: FPNDelegate?
+    var selected: FPNCountry
+    var showSearchBar: Bool
+    var showDialCode: Bool = true
 
-	init(countries: [FPNCountry]) {
-		super.init(nibName: nil, bundle: nil)
-
+    init(countries: [FPNCountry], selectedCountry: FPNCountry, showSearchBar: Bool = false) {
+        self.selected = selectedCountry
+        self.showSearchBar = showSearchBar
+		super.init(style: .grouped)
 		self.list = countries
 	}
 
@@ -28,8 +32,13 @@ class FPNSearchCountryViewController: UITableViewController, UISearchResultsUpda
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
-		initSearchBarController()
+        title = "Select a Country"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                                           target: self,
+                                                           action: #selector(dismissController))
+        if showSearchBar {
+            initSearchBarController()
+        }
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -101,24 +110,35 @@ class FPNSearchCountryViewController: UITableViewController, UISearchResultsUpda
 		return list?.count ?? 0
 	}
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Countries"
+    }
+
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
 		let country = getItem(at: indexPath)
 
 		cell.textLabel?.text = country.name
-		cell.detailTextLabel?.text = country.phoneCode
+        if showDialCode {
+            cell.detailTextLabel?.text = country.phoneCode
+        }
 		cell.imageView?.image = country.flag
 
+        if country.code == selected.code {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
 		return cell
 	}
 
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
-
+        self.selected = getItem(at: indexPath)
 		delegate?.fpnDidSelect(country: getItem(at: indexPath))
-
 		searchController?.isActive = false
 		searchController?.searchBar.resignFirstResponder()
+        dismissController()
 	}
 
 	// UISearchResultsUpdating

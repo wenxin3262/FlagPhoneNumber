@@ -18,7 +18,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
     }
 
     /// The edges insets of the flag button
-    public var flagButtonEdgeInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5) {
+    public var flagButtonEdgeInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 8) {
         didSet {
             layoutSubviews()
         }
@@ -31,7 +31,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 
     /// The size of the leftView
     private var leftViewSize: CGSize {
-        let width = flagSize.width + flagButtonEdgeInsets.left + flagButtonEdgeInsets.right + phoneCodeTextField.frame.width
+        let width = CGFloat(120.0)
         let height = bounds.height
 
         return CGSize(width: width, height: height)
@@ -46,7 +46,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
     //    private var nbPhoneNumber: NBPhoneNumber?
     //    private var formatter: NBAsYouTypeFormatter?
 
-    public var flagButton: UIButton = UIButton()
+    public var flagButton: UIButton = UIButton(type: .custom)
 
     open override var font: UIFont? {
         didSet {
@@ -109,7 +109,8 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
         super.layoutSubviews()
 
         leftView?.frame = leftViewRect(forBounds: frame)
-        flagButton.imageEdgeInsets = flagButtonEdgeInsets
+        flagButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 4)
+        flagButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 0)
     }
 
     open override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
@@ -133,23 +134,29 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
     }
 
     private func setupFlagButton() {
-        flagButton.contentHorizontalAlignment = .fill
-        flagButton.contentVerticalAlignment = .fill
+        let titleStr = NSMutableAttributedString(string: "\u{25BC}", attributes: [.font : UIFont.preferredFont(forTextStyle: .caption1),
+                                                                                  .foregroundColor: UIColor.lightGray])
+        flagButton.setAttributedTitle(titleStr, for: .normal)
+//        flagButton.setTitleColor(.darkGray, for: .normal)
+        flagButton.accessibilityLabel = "Country Code"
+//        flagButton.contentHorizontalAlignment = .fill
+//        flagButton.contentVerticalAlignment = .fill
         flagButton.imageView?.contentMode = .scaleAspectFit
-        if useSearchCountry {
+//        if useSearchCountry {
             flagButton.addTarget(self,
-                                 action: #selector(displayAlphabeticKeyBoard),
+                                 action: #selector(showSearchController),
                                  for: .touchUpInside)
-        } else {
-            flagButton.addTarget(self,
-                                 action: #selector(displayCountryKeyboard),
-                                 for: .touchUpInside)
-        }
+//        } else {
+//            flagButton.addTarget(self,
+//                                 action: #selector(displayCountryKeyboard),
+//                                 for: .touchUpInside)
+//        }
         flagButton.translatesAutoresizingMaskIntoConstraints = false
-        flagButton.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
+//        flagButton.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
     }
 
     private func setupPhoneCodeTextField() {
+        phoneCodeTextField.textAlignment = .center
         phoneCodeTextField.isUserInteractionEnabled = false
         phoneCodeTextField.translatesAutoresizingMaskIntoConstraints = false
         phoneCodeTextField.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
@@ -157,18 +164,36 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 
     private func setupLeftView() {
         leftViewMode = .always
-        leftView = UIView()
-        leftView?.addSubview(flagButton)
-        leftView?.addSubview(phoneCodeTextField)
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .fillProportionally
+        stackView.alignment = .center
+        stackView.spacing = 4
 
-        let views = ["flag": flagButton, "textField": phoneCodeTextField]
-        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[flag]-(0)-[textField]|", options: [], metrics: nil, views: views)
+        stackView.addArrangedSubview(flagButton)
 
-        leftView?.addConstraints(horizontalConstraints)
+        let verticalLine = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: self.frame.size.height))
+        verticalLine.backgroundColor = .darkGray
 
-        for key in views.keys {
-            leftView?.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[\(key)]|", options: [], metrics: nil, views: views))
-        }
+
+        stackView.addArrangedSubview(verticalLine)
+        stackView.addArrangedSubview(phoneCodeTextField)
+
+        leftView = stackView
+
+        NSLayoutConstraint(item: flagButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60.0).isActive = true
+
+        NSLayoutConstraint(item: verticalLine, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 1.0).isActive = true
+        NSLayoutConstraint(item: verticalLine, attribute: .height, relatedBy: .equal, toItem: leftView, attribute:.height, multiplier: 1.0, constant:0.0).isActive = true
+
+//        let views = ["flag": flagButton, "textField": phoneCodeTextField]
+//        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[flag]-(0)-[textField]|", options: [], metrics: nil, views: views)
+//
+//        leftView?.addConstraints(horizontalConstraints)
+
+//        for key in views.keys {
+//            leftView?.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[\(key)]|", options: [], metrics: nil, views: views))
+//        }
     }
 
     private func setupCountryPicker() {
@@ -190,17 +215,13 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
         reloadInputViews()
     }
 
-    @objc private func displayCountryKeyboard() {
-        inputView = countryPicker
-        inputAccessoryView = getToolBar(with: getCountryListBarButtonItems())
-        tintColor = .clear
-        reloadInputViews()
-        becomeFirstResponder()
-    }
-
-    @objc private func displayAlphabeticKeyBoard() {
-        showSearchController()
-    }
+//    @objc private func displayCountryKeyboard() {
+//        inputView = countryPicker
+//        inputAccessoryView = getToolBar(with: getCountryListBarButtonItems())
+//        tintColor = .clear
+//        reloadInputViews()
+//        becomeFirstResponder()
+//    }
 
     @objc private func resetKeyBoard() {
         inputView = nil
@@ -313,14 +334,19 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
     //        return phoneNumber.replacingOccurrences(of: "\(dialCode) ", with: "").replacingOccurrences(of: "\(dialCode)", with: "")
     //    }
 
-    private func showSearchController() {
+    @objc private func showSearchController() {
+        debugPrint("Showing selected country picker")
         if let countries = countryPicker.countries {
-            let searchCountryViewController = FPNSearchCountryViewController(countries: countries)
-            let navigationViewController = UINavigationController(rootViewController: searchCountryViewController)
 
-            searchCountryViewController.delegate = self
-
-            parentViewController?.present(navigationViewController, animated: true, completion: nil)
+            if let selectedCountry = selectedCountry {
+                let searchCountryViewController = FPNSearchCountryViewController(countries: countries, selectedCountry: selectedCountry)
+                let navigationViewController = UINavigationController(rootViewController: searchCountryViewController)
+                searchCountryViewController.delegate = self
+                parentViewController?.present(navigationViewController, animated: true, completion: nil)
+            } else {
+                let defaultRegion = PhoneNumberKit.defaultRegionCode()
+                // find country by default region
+            }
         }
     }
 
@@ -341,7 +367,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
         doneButton.accessibilityLabel = "done"
 
         if parentViewController != nil {
-            let searchButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.search, target: self, action: #selector(displayAlphabeticKeyBoard))
+            let searchButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.search, target: self, action: #selector(showSearchController))
 
             searchButton.accessibilityLabel = "search"
 
