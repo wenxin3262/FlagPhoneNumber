@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FPNSearchCountryViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate {
+public class FPNSearchCountryViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate {
 
     var searchController: UISearchController?
 	var list: [FPNCountry]?
@@ -30,7 +30,7 @@ class FPNSearchCountryViewController: UITableViewController, UISearchResultsUpda
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	override func viewDidLoad() {
+    override public func viewDidLoad() {
 		super.viewDidLoad()
         title = "Select a Country"
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
@@ -41,7 +41,7 @@ class FPNSearchCountryViewController: UITableViewController, UISearchResultsUpda
         }
 	}
 
-	override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
 		if #available(iOS 11.0, *) {
@@ -51,7 +51,7 @@ class FPNSearchCountryViewController: UITableViewController, UISearchResultsUpda
 		}
 	}
 
-	override func viewDidAppear(_ animated: Bool) {
+    override public func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 
 //        searchController?.isActive = true
@@ -97,11 +97,11 @@ class FPNSearchCountryViewController: UITableViewController, UISearchResultsUpda
 		return array[indexPath.row]
 	}
 
-	override func numberOfSections(in tableView: UITableView) -> Int {
+    override public func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
 	}
 
-	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if let searchController = searchController, searchController.isActive {
 			if let count = searchController.searchBar.text?.count, count > 0 {
 				return results?.count ?? 0
@@ -110,11 +110,11 @@ class FPNSearchCountryViewController: UITableViewController, UISearchResultsUpda
 		return list?.count ?? 0
 	}
 
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Countries"
     }
 
-	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
 		let country = getItem(at: indexPath)
 
@@ -132,7 +132,7 @@ class FPNSearchCountryViewController: UITableViewController, UISearchResultsUpda
 		return cell
 	}
 
-	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
         self.selected = getItem(at: indexPath)
 		delegate?.fpnDidSelect(country: getItem(at: indexPath))
@@ -143,7 +143,7 @@ class FPNSearchCountryViewController: UITableViewController, UISearchResultsUpda
 
 	// UISearchResultsUpdating
 
-	func updateSearchResults(for searchController: UISearchController) {
+    public func updateSearchResults(for searchController: UISearchController) {
 		if list == nil {
 			results?.removeAll()
 			return
@@ -170,17 +170,17 @@ class FPNSearchCountryViewController: UITableViewController, UISearchResultsUpda
 
 	// UISearchControllerDelegate
 
-	func didPresentSearchController(_ searchController: UISearchController) {
+    public func didPresentSearchController(_ searchController: UISearchController) {
 		DispatchQueue.main.async { [unowned self] in
 			self.searchController?.searchBar.becomeFirstResponder()
 		}
 	}
 
-	func willDismissSearchController(_ searchController: UISearchController) {
+    public func willDismissSearchController(_ searchController: UISearchController) {
 		results?.removeAll()
 	}
 
-	func didDismissSearchController(_ searchController: UISearchController) {
+    public func didDismissSearchController(_ searchController: UISearchController) {
 		dismissController()
 	}
 }
