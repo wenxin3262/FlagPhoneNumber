@@ -28,7 +28,7 @@ s.author           = { 'Aurélien Grifasi' => 'aurelien.grifasi@chronotruck.com'
 s.source           = { :git => 'https://github.com/chronotruck/FlagPhoneNumber.git', :tag => s.version.to_s }
 # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-s.ios.deployment_target = '8.0'
+s.ios.deployment_target = '9.0'
 
 s.source_files = 'FlagPhoneNumber/**/*.swift'
 s.resource_bundles = {'FlagPhoneNumber' => ['FlagPhoneNumber/Resources/**/*']}
