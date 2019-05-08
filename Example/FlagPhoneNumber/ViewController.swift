@@ -61,6 +61,10 @@ class ViewController: UIViewController {
 		view.addSubview(phoneNumberTextField)
 
 		phoneNumberTextField.center = view.center
+        UITableView.appearance(whenContainedInInstancesOf: [FPNSearchCountryViewController.self]).backgroundColor = UIColor.black
+        UITableView.appearance(whenContainedInInstancesOf: [FPNSearchCountryViewController.self]).separatorColor = UIColor.darkGray
+        UITableViewCell.appearance(whenContainedInInstancesOf: [FPNSearchCountryViewController.self]).backgroundColor = UIColor.black
+        FPNSearchCountryViewController.cellTextColor = UIColor.white
 	}
 
 	private func getCustomTextFieldInputAccessoryView(with items: [UIBarButtonItem]) -> UIToolbar {

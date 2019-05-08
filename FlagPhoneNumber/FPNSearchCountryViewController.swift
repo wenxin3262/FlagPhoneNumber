@@ -10,6 +10,8 @@ import Foundation
 
 public class FPNSearchCountryViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate {
 
+    public static var cellTextColor = UIColor.darkText
+
     var searchController: UISearchController?
 	var list: [FPNCountry]?
 	var results: [FPNCountry]?
@@ -119,6 +121,8 @@ public class FPNSearchCountryViewController: UITableViewController, UISearchResu
 		let country = getItem(at: indexPath)
 
 		cell.textLabel?.text = country.name
+        cell.textLabel?.textColor = FPNSearchCountryViewController.cellTextColor
+
         if showDialCode {
             cell.detailTextLabel?.text = country.phoneCode
         }
