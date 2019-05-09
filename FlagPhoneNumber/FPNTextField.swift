@@ -25,7 +25,11 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
     }
 
     public var phoneCodeTextField: UITextField = UITextField()
-
+    public var separatorLine: UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: 30))
+        view.backgroundColor = .darkGray
+        return view
+    }()
     // use picker by default
     open var useSearchCountry = false
 
@@ -171,20 +175,15 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
         stackView.spacing = 4
 
         stackView.addArrangedSubview(flagButton)
-
-        let verticalLine = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: self.frame.size.height))
-        verticalLine.backgroundColor = .darkGray
-
-
-        stackView.addArrangedSubview(verticalLine)
+        stackView.addArrangedSubview(separatorLine)
         stackView.addArrangedSubview(phoneCodeTextField)
 
         leftView = stackView
 
         NSLayoutConstraint(item: flagButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60.0).isActive = true
 
-        NSLayoutConstraint(item: verticalLine, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 1.0).isActive = true
-        NSLayoutConstraint(item: verticalLine, attribute: .height, relatedBy: .equal, toItem: leftView, attribute:.height, multiplier: 1.0, constant:0.0).isActive = true
+        NSLayoutConstraint(item: separatorLine, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 1.0).isActive = true
+        NSLayoutConstraint(item: separatorLine, attribute: .height, relatedBy: .equal, toItem: leftView, attribute:.height, multiplier: 1.0, constant:0.0).isActive = true
 
 //        let views = ["flag": flagButton, "textField": phoneCodeTextField]
 //        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[flag]-(0)-[textField]|", options: [], metrics: nil, views: views)
