@@ -43,10 +43,8 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
 
     private lazy var countryPicker: FPNCountryPicker = FPNCountryPicker()
     private lazy var phoneUtil: PhoneNumberKit = PhoneNumberKit()
-    private lazy var partialFormatter: PartialFormatter = {
-        let pf = PartialFormatter(maxDigits: 14)
-        return pf
-    }()
+    private var partialFormatter: PartialFormatter = PartialFormatter(maxDigits: 14)
+
     //    private var nbPhoneNumber: NBPhoneNumber?
     //    private var formatter: NBAsYouTypeFormatter?
 
