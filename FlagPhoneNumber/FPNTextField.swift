@@ -341,8 +341,7 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
                 searchCountryViewController.delegate = self
                 parentViewController?.present(navigationViewController, animated: true, completion: nil)
             } else {
-                let defaultRegion = PhoneNumberKit.defaultRegionCode()
-                // find country by default region
+                print("WARNING: selectedCountry not present, please call countryPicker.setCountry first!")
             }
         }
     }

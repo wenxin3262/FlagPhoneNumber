@@ -86,7 +86,7 @@ extension ViewController: FPNTextFieldDelegate {
 
 		print(
 			isValid,
-            textField.getRawPhoneNumber()
+            textField.getRawPhoneNumber() ?? ""
 		)
 	}
 
