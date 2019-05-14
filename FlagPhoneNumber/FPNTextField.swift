@@ -73,6 +73,10 @@ open class FPNTextField: UITextField, FPNCountryPickerDelegate, FPNDelegate {
         }
     }
 
+    public var selectedCountryCode: String? {
+        return selectedCountry?.code.rawValue
+    }
+
     var selectedCountry: FPNCountry? {
         didSet {
             updateUI()
