@@ -28,7 +28,7 @@ s.author           = { 'Aurélien Grifasi' => 'aurelien.grifasi@chronotruck.com'
 s.source           = { :git => 'https://github.com/chronotruck/FlagPhoneNumber.git', :tag => s.version.to_s }
 # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-s.ios.deployment_target = '8.0'
+s.ios.deployment_target = '9.0'
 
 s.source_files = 'FlagPhoneNumber/**/*.swift'
 s.resource_bundles = {'FlagPhoneNumber' => ['FlagPhoneNumber/Resources/**/*']}
@@ -40,7 +40,7 @@ s.resource_bundles = {'FlagPhoneNumber' => ['FlagPhoneNumber/Resources/**/*']}
 # s.public_header_files = 'Pod/Classes/**/*.h'
 # s.frameworks = 'UIKit', 'MapKit'
 
-s.dependency 'libPhoneNumber-iOS'
+s.dependency 'PhoneNumberKit'
 #s.xcconfig = { 'SWIFT_VERSION' => '4.0' }
 
 end

@@ -40,6 +40,8 @@ class ViewController: UIViewController {
 		//		]
 		//		phoneNumberTextField.textFieldInputAccessoryView = getCustomTextFieldInputAccessoryView(with: items)
 
+        // Show search country when click on country code button
+        phoneNumberTextField.useSearchCountry = true
 		// The placeholder is an example phone number of the selected country by default. You can add your own placeholder :
 		phoneNumberTextField.hasPhoneNumberExample = true
 		//		phoneNumberTextField.placeholder = "Phone Number"
@@ -59,6 +61,10 @@ class ViewController: UIViewController {
 		view.addSubview(phoneNumberTextField)
 
 		phoneNumberTextField.center = view.center
+        UITableView.appearance(whenContainedInInstancesOf: [FPNSearchCountryViewController.self]).backgroundColor = UIColor.black
+        UITableView.appearance(whenContainedInInstancesOf: [FPNSearchCountryViewController.self]).separatorColor = UIColor.darkGray
+        UITableViewCell.appearance(whenContainedInInstancesOf: [FPNSearchCountryViewController.self]).backgroundColor = UIColor.black
+        FPNSearchCountryViewController.cellTextColor = UIColor.white
 	}
 
 	private func getCustomTextFieldInputAccessoryView(with items: [UIBarButtonItem]) -> UIToolbar {
@@ -80,11 +86,7 @@ extension ViewController: FPNTextFieldDelegate {
 
 		print(
 			isValid,
-			textField.getFormattedPhoneNumber(format: .E164),
-			textField.getFormattedPhoneNumber(format: .International),
-			textField.getFormattedPhoneNumber(format: .National),
-			textField.getFormattedPhoneNumber(format: .RFC3966),
-			textField.getRawPhoneNumber()
+            textField.getRawPhoneNumber() ?? ""
 		)
 	}
 
